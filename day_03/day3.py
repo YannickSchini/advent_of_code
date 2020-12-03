@@ -14,14 +14,15 @@ class localGeology():
             raise OutOfBoundsError
         return self.terrain[y_coord][x_coord % len(self.terrain[0])]
 
-    def toboggan_down_the_terrain(self):
+    def toboggan_down_the_terrain(self, slope):
+        x_increment, y_increment = slope
         x = 0
         y = 0
         encountered_terrain = []
         while y < len(self.terrain):
             encountered_terrain.append(self._get_nature_of_the_spot(x, y))
-            x = x + 3
-            y = y + 1
+            x = x + x_increment
+            y = y + y_increment
         encountered_terrain = encountered_terrain[1:] # Removal of the top left that doesn't count
         return encountered_terrain
 
@@ -40,4 +41,4 @@ if __name__=="__main__":
     # day3 = localGeology('test_terrain.txt')
     # day3.test()
     day3 = localGeology('day3_input.txt')
-    print(day3.toboggan_down_the_terrain().count('#'))
+    print(day3.toboggan_down_the_terrain((3, 1)).count('#'))
