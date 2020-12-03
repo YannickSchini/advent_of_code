@@ -1,8 +1,6 @@
 class localGeology():
-
-
     def __init__(self, file_path):
-        with open (file_path, "r") as myfile:
+        with open(file_path, "r") as myfile:
             list_of_lines = myfile.readlines()
             list_of_lines = [x.strip() for x in list_of_lines]
         self.terrain = list_of_lines
@@ -23,7 +21,8 @@ class localGeology():
             encountered_terrain.append(self._get_nature_of_the_spot(x, y))
             x = x + x_increment
             y = y + y_increment
-        encountered_terrain = encountered_terrain[1:] # Removal of the top left that doesn't count
+        encountered_terrain = encountered_terrain[
+            1:]  # Removal of the top left that doesn't count
         return encountered_terrain
 
     def test(self):
@@ -37,7 +36,7 @@ class localGeology():
         print(self.toboggan_down_the_terrain())
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     # day3 = localGeology('test_terrain.txt')
     # day3.test()
     day3 = localGeology('day3_input.txt')
@@ -46,4 +45,11 @@ if __name__=="__main__":
     print(day3.toboggan_down_the_terrain((5, 1)).count('#'))
     print(day3.toboggan_down_the_terrain((7, 1)).count('#'))
     print(day3.toboggan_down_the_terrain((1, 2)).count('#'))
-    print("Final result :", day3.toboggan_down_the_terrain((1, 1)).count('#') * day3.toboggan_down_the_terrain((3, 1)).count('#') * day3.toboggan_down_the_terrain((5, 1)).count('#') * day3.toboggan_down_the_terrain((7, 1)).count('#') * day3.toboggan_down_the_terrain((1, 2)).count('#'))
+    print(
+        "Final result :",
+        day3.toboggan_down_the_terrain(
+            (1, 1)).count('#') * day3.toboggan_down_the_terrain(
+                (3, 1)).count('#') * day3.toboggan_down_the_terrain(
+                    (5, 1)).count('#') * day3.toboggan_down_the_terrain(
+                        (7, 1)).count('#') * day3.toboggan_down_the_terrain(
+                            (1, 2)).count('#'))
