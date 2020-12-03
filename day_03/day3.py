@@ -37,5 +37,7 @@ class localGeology():
 
 
 if __name__=="__main__":
-    day3 = localGeology('test_terrain.txt')
-    day3.test()
+    # day3 = localGeology('test_terrain.txt')
+    # day3.test()
+    day3 = localGeology('day3_input.txt')
+    print(day3.toboggan_down_the_terrain().count('#'))
