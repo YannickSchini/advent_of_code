@@ -88,7 +88,7 @@ class passport_validator():
         return False
 
     def _check_if_hcl_is_valid(self, hcl_value):
-        if re.match("^#[0-9a-f]{6}", hcl_value) is not None:
+        if re.match("^#[0-9a-f]{6}$", hcl_value) is not None:
             return True
         return False
 
