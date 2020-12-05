@@ -25,5 +25,10 @@ if __name__ == "__main__":
     id_list = []
     for boarding_pass in boarding_pass_list:
         id_list.append(get_id(boarding_pass))
+
     # print(id_list)
-    print(max(id_list))
+    print("First part:", max(id_list))
+    print("Second part:", [
+        x for x in range(0, 955)
+        if x not in id_list and x + 1 in id_list and x - 1 in id_list
+    ])
