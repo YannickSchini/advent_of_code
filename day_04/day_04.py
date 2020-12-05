@@ -27,13 +27,13 @@ class passport_validator():
         validation_list = []
         for passport in self.passport_list:
             if self._check_all_mandatory_keys_are_present(passport) and \
-            self._check_if_byr_is_valid(passport["byr"]) and \
-            self._check_if_iyr_is_valid(passport["iyr"]) and \
-            self._check_if_eyr_is_valid(passport["eyr"]) and \
-            self._check_if_hgt_is_valid(passport["hgt"]) and \
-            self._check_if_hcl_is_valid(passport["hcl"]) and \
-            self._check_if_ecl_is_valid(passport["ecl"]) and \
-            self._check_if_pid_is_valid(passport["pid"]):
+                    self._check_if_byr_is_valid(passport["byr"]) and \
+                    self._check_if_iyr_is_valid(passport["iyr"]) and \
+                    self._check_if_eyr_is_valid(passport["eyr"]) and \
+                    self._check_if_hgt_is_valid(passport["hgt"]) and \
+                    self._check_if_hcl_is_valid(passport["hcl"]) and \
+                    self._check_if_ecl_is_valid(passport["ecl"]) and \
+                    self._check_if_pid_is_valid(passport["pid"]):
                 validation_list.append(True)
             else:
                 validation_list.append(False)
