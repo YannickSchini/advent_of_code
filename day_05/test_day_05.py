@@ -53,3 +53,7 @@ class PassportValidatorTest(unittest.TestCase):
         self.assertEqual(id_2, 567)
         self.assertEqual(id_3, 119)
         self.assertEqual(id_4, 820)
+
+
+if __name__ == "__main__":
+    unittest.main()
