@@ -49,7 +49,7 @@ class seatingArea:
     def update_seating_status(self):
         new_seat_dict = self.seats.copy()
         for row_num, col_num in self.seats.keys():
-            new_seat_dict[(row_num, col_num)] = self.update_seat_status_part_1(
+            new_seat_dict[(row_num, col_num)] = self.update_seat_status_part_2(
                 row_num, col_num)
         return new_seat_dict
 
@@ -60,7 +60,30 @@ class seatingArea:
             new_seat_dict = self.update_seating_status()
         return sum([(seat_value == "#") for seat_value in self.seats.values()])
 
+    def update_seat_status_part_2(self, row_num, col_num):
+        current_seat_status = self.seats[(row_num, col_num)]
+        number_of_adjacent_occupied_seats = 0
+        for row_offset, col_offset in self.adjacent_seat_combinations:
+            total_row_offset = row_offset
+            total_col_offset = col_offset
+            while self._get_seat_value(row_num + total_row_offset,
+                                       col_num + total_col_offset) == '.':
+                total_row_offset += row_offset
+                total_col_offset += col_offset
+            new_seat_value = self._get_seat_value(row_num + total_row_offset,
+                                                  col_num + total_col_offset)
+            if new_seat_value == IndexError:
+                pass
+            elif new_seat_value == '#':
+                number_of_adjacent_occupied_seats += 1
+        if current_seat_status == "L" and number_of_adjacent_occupied_seats == 0:
+            return "#"
+        elif current_seat_status == "#" and number_of_adjacent_occupied_seats >= 5:
+            return "L"
+        else:
+            return current_seat_status
+
 
 if __name__ == "__main__":
     boarding_area = seatingArea("input_file.txt")
-    print("Part 1: ", boarding_area.get_stabilised_occupied_seat_count())
+    print("Seat number: ", boarding_area.get_stabilised_occupied_seat_count())
