@@ -36,11 +36,11 @@ class testSeatingArea(unittest.TestCase):
     def test_update_seating_status_gives_correct_results(self):
         # Given
         testArea = seatingArea("test_file.txt")
-        after_round_1 = seatingArea("after_round_1.txt")
-        after_round_2 = seatingArea("after_round_2.txt")
-        after_round_3 = seatingArea("after_round_3.txt")
-        after_round_4 = seatingArea("after_round_4.txt")
-        after_round_5 = seatingArea("after_round_5.txt")
+        after_round_1 = seatingArea("part_1_after_round_1.txt")
+        after_round_2 = seatingArea("part_1_after_round_2.txt")
+        after_round_3 = seatingArea("part_1_after_round_3.txt")
+        after_round_4 = seatingArea("part_1_after_round_4.txt")
+        after_round_5 = seatingArea("part_1_after_round_5.txt")
         # When
         result_after_1_round = testArea.update_seating_status()
         testArea.seats = result_after_1_round

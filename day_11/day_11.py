@@ -29,7 +29,7 @@ class seatingArea:
         else:
             return self.seats[(row_num, col_num)]
 
-    def update_seat_status(self, row_num, col_num):
+    def update_seat_status_part_1(self, row_num, col_num):
         current_seat_status = self.seats[(row_num, col_num)]
         number_of_adjacent_occupied_seats = 0
         for row_offset, col_offset in self.adjacent_seat_combinations:
@@ -49,7 +49,7 @@ class seatingArea:
     def update_seating_status(self):
         new_seat_dict = self.seats.copy()
         for row_num, col_num in self.seats.keys():
-            new_seat_dict[(row_num, col_num)] = self.update_seat_status(
+            new_seat_dict[(row_num, col_num)] = self.update_seat_status_part_1(
                 row_num, col_num)
         return new_seat_dict
 
