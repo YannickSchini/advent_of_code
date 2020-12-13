@@ -12,6 +12,15 @@ class testDay13(unittest.TestCase):
         # Then
         self.assertEqual(result, expected_result)
 
+    def test_part_2(self):
+        # Given
+        expected_result = 1068781
+        test_file_path = "test_file.txt"
+        # When
+        result = day_13.part_2(test_file_path)
+        # Then
+        self.assertEqual(result, expected_result)
+
 
 if __name__ == "__main__":
     unittest.main()
