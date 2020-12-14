@@ -5,14 +5,14 @@ import day_14
 class testDay14(unittest.TestCase):
     def test_part_1(self):
         # Given
-        input_filepath = "test_file.txt"
+        input_filepath = "test_file_part_1.txt"
         expected_result = 165
         # When
         result = day_14.part_1(input_filepath)
         # Then
         self.assertEqual(result, expected_result)
 
-    def test_apply_mask(self):
+    def test_apply_mask_part_1(self):
         # Given
         mask = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X"
         test_value_1 = 11
@@ -22,13 +22,22 @@ class testDay14(unittest.TestCase):
         expected_result_2 = 101
         expected_result_3 = 64
         # When
-        result_1 = day_14.apply_mask(test_value_1, mask)
-        result_2 = day_14.apply_mask(test_value_2, mask)
-        result_3 = day_14.apply_mask(test_value_3, mask)
+        result_1 = day_14.apply_mask_part_1(test_value_1, mask)
+        result_2 = day_14.apply_mask_part_1(test_value_2, mask)
+        result_3 = day_14.apply_mask_part_1(test_value_3, mask)
         # Then
         self.assertEqual(result_1, expected_result_1)
         self.assertEqual(result_2, expected_result_2)
         self.assertEqual(result_3, expected_result_3)
+
+    def test_part_2(self):
+        # Given
+        input_filepath = "test_file_part_2.txt"
+        expected_result = 208
+        # When
+        result = day_14.part_2(input_filepath)
+        # Then
+        self.assertEqual(result, expected_result)
 
 
 if __name__ == "__main__":
