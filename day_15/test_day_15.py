@@ -47,13 +47,13 @@ class testDay15(unittest.TestCase):
         result_6 = day_15.day_15_test(starting_6, 30000000)
         result_7 = day_15.day_15_test(starting_7, 30000000)
         # Then
-        self.assertEqual(result_1, 436)
-        self.assertEqual(result_2, 1)
-        self.assertEqual(result_3, 10)
-        self.assertEqual(result_4, 27)
-        self.assertEqual(result_5, 78)
-        self.assertEqual(result_6, 438)
-        self.assertEqual(result_7, 1836)
+        self.assertEqual(result_1, 175594)
+        self.assertEqual(result_2, 2578)
+        self.assertEqual(result_3, 3544142)
+        self.assertEqual(result_4, 261214)
+        self.assertEqual(result_5, 6895259)
+        self.assertEqual(result_6, 18)
+        self.assertEqual(result_7, 362)
 
 
 if __name__ == "__main__":

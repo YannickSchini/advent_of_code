@@ -1,13 +1,17 @@
 def day_15_test(starting_number_list, number_to_go_to):
     number_list = starting_number_list
-    while len(number_list) < number_to_go_to:
-        if len(number_list) % 100000 == 0:
-            print(starting_number_list)
+    number_dict = {}
+    for index, value in enumerate(starting_number_list[:-1]):
+        number_dict[value] = index
+    element_count = len(number_list)
+    while element_count < number_to_go_to:
         try:
-            index = number_list[:-1][::-1].index(number_list[-1])
-            number_list.append(index + 1)
-        except ValueError:
+            number_list.append(element_count - number_dict[number_list[-1]] -
+                               1)
+        except KeyError:
             number_list.append(0)
+        number_dict[number_list[-2]] = element_count - 1
+        element_count += 1
     return number_list[-1]
 
 
