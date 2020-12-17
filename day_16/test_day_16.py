@@ -5,7 +5,7 @@ import day_16
 class testDay16(unittest.TestCase):
     def test_parse_file(self):
         # Given
-        file_path = "test_file.txt"
+        file_path = "test_file_part_1.txt"
         expected_rules = {
             "class": list(range(1, 4)) + list(range(5, 8)),
             "row": list(range(6, 12)) + list(range(33, 45)),
@@ -24,7 +24,7 @@ class testDay16(unittest.TestCase):
     def test_part_1(self):
         # Given
         expected_result = 71
-        test_file = "test_file.txt"
+        test_file = "test_file_part_1.txt"
         # When
         result = day_16.part_1(test_file)
         # Then
