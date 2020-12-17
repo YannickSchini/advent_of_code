@@ -49,6 +49,15 @@ class testDay16(unittest.TestCase):
         self.assertEqual(invalid_result_1, 13)
         self.assertEqual(invalid_result_2, 4)
 
+    def test_part_2(self):
+        # Given
+        expected_result = {0: "row", 1: "class", 2: "seat"}
+        test_file = "test_file_part_2.txt"
+        # When
+        result = day_16.part_2(test_file)
+        # Then
+        self.assertEqual(result, expected_result)
+
 
 if __name__ == "__main__":
     unittest.main()
