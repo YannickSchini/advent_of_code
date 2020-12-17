@@ -28,7 +28,7 @@ def part_1(file_path: str) -> int:
     invalid_values = []
     for other_ticket in other_tickets:
         invalid_values.append(get_invalid_value(other_ticket, rules))
-    return sum(invalid_values)
+    return sum([i for i in invalid_values if i])
 
 
 def part_2(file_path: str) -> int:
@@ -54,7 +54,7 @@ def discard_invalid_tickets(tickets: List[List[int]],
                             rules: Dict[str, List[int]]) -> List[List[int]]:
     valid_tickets = []
     for ticket in tickets:
-        if get_invalid_value(ticket, rules) == 0:
+        if get_invalid_value(ticket, rules) is None:
             valid_tickets.append(ticket)
     return valid_tickets
 
@@ -69,7 +69,7 @@ def get_invalid_value(ticket, rules):
                 is_value_valid.append(True)
         if True not in is_value_valid:
             return value
-    return 0
+    return None
 
 
 if __name__ == "__main__":

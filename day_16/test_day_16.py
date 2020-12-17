@@ -30,6 +30,25 @@ class testDay16(unittest.TestCase):
         # Then
         self.assertEqual(result, expected_result)
 
+    def test_get_invalid_value_of_ticket(self):
+        # Given
+        valid_ticket = [2, 12, 21]
+        invalid_ticket_1 = [1, 10, 13]
+        invalid_ticket_2 = [4, 9, 23]
+        rules = {
+            "toto": [1, 2, 3, 5, 6],
+            "tata": [10, 11, 12, 14, 15, 16],
+            "titi": [20, 21, 22]
+        }
+        # When
+        valid_result = day_16.get_invalid_value(valid_ticket, rules)
+        invalid_result_1 = day_16.get_invalid_value(invalid_ticket_1, rules)
+        invalid_result_2 = day_16.get_invalid_value(invalid_ticket_2, rules)
+        # Then
+        self.assertEqual(valid_result, None)
+        self.assertEqual(invalid_result_1, 13)
+        self.assertEqual(invalid_result_2, 4)
+
 
 if __name__ == "__main__":
     unittest.main()
