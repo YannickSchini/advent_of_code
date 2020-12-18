@@ -48,6 +48,15 @@ class testDay18(unittest.TestCase):
         self.assertEqual(result_3, expected_result_3)
         self.assertEqual(result_4, expected_result_4)
 
+    def test_part_2(self):
+        # Given
+        test_file = "test_file.txt"
+        expected_result = 231 + 51 + 46 + 1445 + 669060 + 23340
+        # When
+        result = day_18.part_2(test_file)
+        # Then
+        self.assertEqual(result, expected_result)
+
 
 if __name__ == "__main__":
     unittest.main()
