@@ -20,8 +20,51 @@ class communicationFixer:
 
     def create_regex(self, key: int) -> str:
         rule_value = self.rule_dict[key]
-        print("Key: ", key)
-        print("rule_value: ", rule_value)
+        if key == 8:
+            return self.create_regex(42) + "{1,5}"
+        if key == 11:
+            one_repeat = "".join(
+                [self.create_regex(42),
+                 self.create_regex(31)])
+            two_repeat = "".join([
+                self.create_regex(42),
+                self.create_regex(42),
+                self.create_regex(31),
+                self.create_regex(31)
+            ])
+            three_repeat = "".join([
+                self.create_regex(42),
+                self.create_regex(42),
+                self.create_regex(42),
+                self.create_regex(31),
+                self.create_regex(31),
+                self.create_regex(31)
+            ])
+            four_repeat = "".join([
+                self.create_regex(42),
+                self.create_regex(42),
+                self.create_regex(42),
+                self.create_regex(42),
+                self.create_regex(31),
+                self.create_regex(31),
+                self.create_regex(31),
+                self.create_regex(31)
+            ])
+            five_repeat = "".join([
+                self.create_regex(42),
+                self.create_regex(42),
+                self.create_regex(42),
+                self.create_regex(42),
+                self.create_regex(42),
+                self.create_regex(31),
+                self.create_regex(31),
+                self.create_regex(31),
+                self.create_regex(31),
+                self.create_regex(31)
+            ])
+            return "(" + "|".join([
+                one_repeat, two_repeat, three_repeat, four_repeat, five_repeat
+            ]) + ")"
         if "\"" in rule_value:
             return rule_value[2]
         elif re.match("^( \d+)+$", rule_value):
