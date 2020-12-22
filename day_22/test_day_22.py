@@ -26,10 +26,10 @@ class testDay22(unittest.TestCase):
         player_1_deck, player_2_deck = day_22.parse_inputs(test_filepath)
         # When
         player_1_deck_after_1_turn, player_2_deck_after_1_turn = \
-            day_22.play_one_turn(player_1_deck, player_2_deck)
+            day_22.play_one_turn_part_1(player_1_deck, player_2_deck)
         player_1_deck_after_2_turn, player_2_deck_after_2_turn = \
-            day_22.play_one_turn(player_1_deck_after_1_turn,
-                                 player_2_deck_after_1_turn)
+            day_22.play_one_turn_part_1(player_1_deck_after_1_turn,
+                                        player_2_deck_after_1_turn)
         # Then
         self.assertEqual(player_1_deck_after_1_turn, [2, 6, 3, 1, 9, 5])
         self.assertEqual(player_2_deck_after_1_turn, [8, 4, 7, 10])
@@ -41,7 +41,7 @@ class testDay22(unittest.TestCase):
         test_filepath = "test_file.txt"
         player_1_deck, player_2_deck = day_22.parse_inputs(test_filepath)
         # When
-        number_of_turns, winning_deck = day_22.play_one_game(
+        number_of_turns, winning_deck = day_22.play_one_game_part_1(
             player_1_deck, player_2_deck)
         # Then
         self.assertEqual(number_of_turns, 29)
@@ -54,6 +54,14 @@ class testDay22(unittest.TestCase):
         score = day_22.calculate_score(player_deck)
         # Then
         self.assertEqual(score, 306)
+
+    def test_part_2(self):
+        # Given
+        test_filepath = "test_file.txt"
+        # When
+        result = day_22.part_2(test_filepath)
+        # Then
+        self.assertEqual(result, 291)
 
 
 if __name__ == "__main__":
