@@ -13,6 +13,14 @@ class testDay23(unittest.TestCase):
         self.assertEqual(result_after_10, "92658374")
         self.assertEqual(result_after_100, "67384529")
 
+    def test_part_2(self):
+        # Given
+        input_cup_labeling = "389125467"
+        # When
+        result = day_23.part_2(input_cup_labeling, 10000000)
+        # Then
+        self.assertEqual(result, 149245887792)
+
 
 if __name__ == "__main__":
     unittest.main()
