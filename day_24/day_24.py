@@ -1,4 +1,6 @@
-from typing import Tuple
+from typing import Tuple, Dict
+
+neighbor_coords = [(-1, 0), (1, 0), (-0.5, 1), (0.5, 1), (-0.5, -1), (0.5, -1)]
 
 
 def part_1(file_path: str) -> int:
@@ -26,5 +28,40 @@ def get_coord_from_str(tile_string: str) -> Tuple[float, int]:
             ne_count + nw_count - se_count - sw_count)
 
 
+def get_number_of_adjacent_black_tiles(
+        coord: Tuple[float, int], tile_dict: Dict[Tuple[float, int],
+                                                  bool]) -> int:
+    counter = 0
+    for neighbor in neighbor_coords:
+        try:
+            if tile_dict[tuple(map(sum, zip(coord, neighbor)))]:
+                counter += 1
+            else:
+                pass
+        except IndexError:
+            pass
+    return counterza
+
+
+# SEE DAY 17 FOR INFORMATION
 if __name__ == "__main__":
     print(part_1("input_file.txt"))
+
+
+def get_new_topology_3D(
+        topology: Dict[Tuple[int], str]) -> Dict[Tuple[int], str]:
+    new_topology = topology.copy()
+    for cube in topology:
+        for neighbor in neighbor_list_3D:
+            if tuple(map(sum, zip(cube, neighbor + (0, )))) in topology.keys():
+                pass
+            else:
+                new_topology[tuple(map(sum, zip(
+                    cube, neighbor + (0, ))))] = update_status_of_cube(
+                        ".",
+                        get_number_of_active_neighbors_3D(
+                            tuple(map(sum, zip(cube, neighbor + (0, )))),
+                            topology))
+        new_topology[cube] = update_status_of_cube(
+            topology[cube], get_number_of_active_neighbors_3D(cube, topology))
+        return new_topology
